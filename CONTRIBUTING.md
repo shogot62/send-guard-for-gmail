@@ -24,4 +24,4 @@ npm run release:package
 npm run release:validate
 ```
 
-Chrome 150 + Gmail Web manual verification remains required before production rollout because Gmail DOM changes can affect selectors.
+Basic manual verification on real Gmail Web has been completed for the initial public release. Changes that affect Gmail DOM detection, compose/reply behavior, Auto CC/BCC, keyboard shortcuts, attachments, or sending flows still require real-browser verification because Gmail DOM is not a stable public API.
