@@ -1,0 +1,288 @@
+/* Send Guard for Gmail modal styles */
+
+.gsg-root {
+    --primary: #1a73e8;
+    --primary-hover: #1765cc;
+    --danger: #d93025;
+    --danger-hover: #c5221f;
+    --danger-bg: #fce8e6;
+    --success: #1e8e3e;
+    --success-bg: #e6f4ea;
+    --warning: #f29900;
+    --warning-bg: #fef7e0;
+    --text-main: #202124;
+    --text-muted: #5f6368;
+    --border: #dadce0;
+    --bg-main: #ffffff;
+    --bg-overlay: rgba(32, 33, 36, 0.6);
+    --bg-header: #f2f2f2;
+    --bg-hover: #f1f3f4;
+    --bg-badge: #e8eaed;
+    --bg-modal-header: #fafafa;
+    --accordion-bg: #ffffff;
+    --accordion-hover: #f8f9fa;
+}
+
+.gsg-root[data-gsg-theme="dark"] {
+    --primary: #8ab4f8;
+    --primary-hover: #aecbfa;
+    --danger: #f28b82;
+    --danger-hover: #f6aea9;
+    --danger-bg: rgba(242, 139, 130, 0.15);
+    --success: #81c995;
+    --success-bg: rgba(129, 201, 149, 0.15);
+    --warning: #fde293;
+    --warning-bg: rgba(253, 226, 147, 0.15);
+    --text-main: #e8eaed;
+    --text-muted: #9aa0a6;
+    --border: #5f6368;
+    --bg-main: #202124;
+    --bg-overlay: rgba(0, 0, 0, 0.75);
+    --bg-header: #303134;
+    --bg-hover: #3c4043;
+    --bg-badge: #3c4043;
+    --bg-modal-header: #292a2d;
+    --accordion-bg: #202124;
+    --accordion-hover: #303134;
+}
+
+/* Modal Overlay */
+.gsg-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg-overlay);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-family: 'Inter', 'Roboto', 'Noto Sans JP', sans-serif;
+    color: var(--text-main);
+}
+
+.gsg-modal-overlay.gsg-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Box */
+.gsg-modal-box {
+    background: var(--bg-main);
+    width: 100%;
+    max-width: 520px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px) scale(0.95);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease, background 0.3s;
+    max-height: 90vh;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.gsg-modal-overlay.gsg-active .gsg-modal-box {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.gsg-modal-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-modal-header);
+}
+
+.gsg-modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.gsg-modal-body {
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Check Item */
+.gsg-check-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.gsg-check-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.gsg-check-content {
+    flex: 1;
+}
+
+.gsg-check-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.gsg-check-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+    background: var(--bg-hover);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.gsg-check-desc.gsg-warning-box {
+    background: var(--danger-bg);
+    border-color: rgba(217, 48, 37, 0.3);
+    color: var(--danger);
+}
+
+/* Accordion for Domains */
+.gsg-domain-accordion {
+    background: var(--accordion-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.gsg-domain-accordion:last-child {
+    margin-bottom: 0;
+}
+
+.gsg-domain-summary {
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    list-style: none;
+    background: var(--accordion-bg);
+    font-size: 13px;
+}
+.gsg-domain-summary::-webkit-details-marker {
+    display: none;
+}
+.gsg-domain-summary:hover {
+    background: var(--accordion-hover);
+}
+.gsg-domain-accordion[open] .gsg-domain-summary {
+    border-bottom: 1px solid var(--border);
+}
+.gsg-domain-accordion[open] .gsg-chevron {
+    transform: rotate(180deg);
+}
+
+.gsg-domain-badge {
+    background: var(--bg-badge);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--text-main);
+}
+
+.gsg-chevron {
+    transition: transform 0.3s;
+    color: var(--text-muted);
+}
+
+.gsg-domain-details {
+    padding: 12px 12px 12px 32px;
+    font-size: 13px;
+    color: var(--text-muted);
+    background: var(--accordion-bg);
+}
+.gsg-domain-details ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: disc;
+}
+.gsg-domain-details li {
+    margin-bottom: 4px;
+    word-break: break-all;
+}
+.gsg-domain-details li:last-child {
+    margin-bottom: 0;
+}
+
+.gsg-auto-recipient-domains {
+    margin-top: 8px;
+}
+
+/* Modal Footer */
+.gsg-modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    background: var(--bg-modal-header);
+}
+
+.gsg-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.gsg-btn-cancel {
+    background: transparent;
+    color: var(--text-muted);
+}
+.gsg-btn-cancel:hover {
+    background: var(--bg-hover);
+    color: var(--text-main);
+}
+
+.gsg-btn-confirm {
+    background: var(--primary);
+    color: #111;
+}
+.gsg-root[data-gsg-theme="dark"] .gsg-btn-confirm {
+    color: #000;
+}
+.gsg-root:not([data-gsg-theme="dark"]) .gsg-btn-confirm {
+    color: #fff;
+}
+
+.gsg-btn-confirm:hover {
+    background: var(--primary-hover);
+}
+
+.gsg-btn-confirm.gsg-danger {
+    background: var(--danger);
+}
+.gsg-btn-confirm.gsg-danger:hover {
+    background: var(--danger-hover);
+}
+.gsg-root[data-gsg-theme="dark"] .gsg-btn-confirm.gsg-danger {
+    color: #000;
+}

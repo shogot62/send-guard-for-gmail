@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Test
+        run: npm test
+
+      - name: Basic lint
+        run: npm run lint:basic
+
+      - name: Release package validation
+        run: npm run release:package && npm run release:validate && npm run release:reproducibility
+
+      - name: Forbidden pattern scan
+        shell: bash
+        run: |
+          dummy_assert_pattern='assert.ok''(true)'
+          sync_storage_pattern='chrome.storage.''sync'
+          ! grep -R "$dummy_assert_pattern" .
+          ! grep -R "$sync_storage_pattern" extension README.md PRIVACY.md SECURITY.md docs
+          ! grep -R "innerHTML" extension
+          ! grep -R "fetch(" extension
+          ! grep -R "XMLHttpRequest" extension
+          ! grep -R "eval(" extension
+          ! grep -R "new Function" extension

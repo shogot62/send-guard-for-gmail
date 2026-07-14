@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Guard for Gmail Settings</title>
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="settings-container">
+        <div class="header">
+            <div class="header-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+                <span data-i18n="optionsTitle">Send Guard for Gmail 設定</span>
+            </div>
+            <div>
+                <select id="themeSelect" aria-label="テーマ" data-i18n-aria-label="themeLabel">
+                    <option value="system" data-i18n="themeSystem">テーマ: システム</option>
+                    <option value="light" data-i18n="themeLight">テーマ: ライト</option>
+                    <option value="dark" data-i18n="themeDark">テーマ: ダーク</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span data-i18n="languageCardTitle">表示言語</span>
+            </div>
+            <div class="setting-row setting-row-last">
+                <div class="setting-info">
+                    <label class="setting-label" for="languageSelect" data-i18n="languageLabel">表示言語</label>
+                    <div class="setting-desc" data-i18n="languageDescription">設定画面と送信前確認モーダルの表示言語を選択します。</div>
+                </div>
+                <select id="languageSelect">
+                    <option value="auto" data-i18n="languageAuto">自動</option>
+                    <option value="ja" data-i18n="languageJapanese">日本語</option>
+                    <option value="en" data-i18n="languageEnglish">English</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                <span data-i18n="subjectCardTitle">件名チェック設定</span>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <label class="setting-label" for="subjectCheckEnabled" data-i18n="subjectCheckLabel">件名のチェックを有効にする</label>
+                    <div class="setting-desc" data-i18n="subjectCheckDescription">件名が空の場合に警告を表示します</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="subjectCheckEnabled">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+        </div>
+
+        <fieldset class="card">
+            <legend class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                <span data-i18n="confirmationCardTitle">確認チェックボックス設定</span>
+            </legend>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <label class="setting-label" for="chkConfirmSubject" data-i18n="confirmSubjectSetting">件名に「確認した」チェックを表示する</label>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="chkConfirmSubject">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <label class="setting-label" for="chkConfirmDomains" data-i18n="confirmDomainsSetting">宛先ドメインに「確認した」チェックを表示する</label>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="chkConfirmDomains">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <label class="setting-label" for="chkConfirmAttachments" data-i18n="confirmAttachmentsSetting">添付ファイルに「確認した」チェックを表示する</label>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="chkConfirmAttachments">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-row">
+                <div class="setting-info">
+                    <label class="setting-label" for="chkConfirmAutoBcc" data-i18n="confirmAutoBccSetting">自動BCCに「確認した」チェックを表示する</label>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="chkConfirmAutoBcc">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <div class="setting-row">
+                <div class="setting-info">
+                    <label class="setting-label" for="chkConfirmAutoCc" data-i18n="confirmAutoCcSetting">自動CCに「確認した」チェックを表示する</label>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="chkConfirmAutoCc">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="setting-row setting-row-last">
+                <div class="setting-info">
+                    <label class="setting-label" for="requireAllEnabledConfirmations" data-i18n="requireAllConfirmationsLabel">有効な確認チェックが未完了の場合、送信ボタンを無効化する</label>
+                    <div class="setting-desc" data-i18n="requireAllConfirmationsDescription">デフォルトでは「それでも送信する」で送信できます</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="requireAllEnabledConfirmations">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </fieldset>
+
+        <div class="card">
+            <div class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                <span data-i18n="attachmentCardTitle">添付漏れチェック設定</span>
+            </div>
+            
+            <div class="setting-row setting-row-last">
+                <div class="setting-info">
+                    <label class="setting-label" for="attachmentCheckEnabled" data-i18n="attachmentCheckLabel">添付漏れチェックを有効にする</label>
+                    <div class="setting-desc" data-i18n="attachmentCheckDescription">特定のキーワードが含まれているのに添付ファイルがない場合、警告を表示します</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="attachmentCheckEnabled">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="input-group" id="attach-subs">
+                <div class="setting-label" data-i18n="builtInKeywordLabel">固定キーワード</div>
+                <ul class="keyword-list">
+                    <li><span class="fixed-keyword" data-i18n="builtInKeywordAttachment">添付 （削除不可）</span></li>
+                </ul>
+
+                <label class="setting-label setting-label-spaced" for="customKeywordInput" data-i18n="customKeywordLabel">追加キーワード</label>
+                <div class="inline-input-row">
+                    <input class="input-grow" type="text" id="customKeywordInput" placeholder="例: 資料" data-i18n-placeholder="customKeywordPlaceholder">
+                    <button class="btn btn-secondary" type="button" id="btnAddKeyword" data-i18n="addKeywordButton">追加</button>
+                </div>
+                <div class="setting-label setting-label-spaced" data-i18n="savedCustomKeywordsLabel">登録済み追加キーワード</div>
+                <ul class="keyword-list" id="customKeywordList"></ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <span data-i18n="domainCardTitle">宛先ドメイン表示設定</span>
+            </div>
+            
+            <div class="setting-row setting-row-last">
+                <div class="setting-info">
+                    <label class="setting-label" for="domainDisplayEnabled" data-i18n="domainDisplayLabel">宛先ドメインのグループ表示を有効にする</label>
+                    <div class="setting-desc" data-i18n="domainDisplayDescription">To / Cc / Bcc のメールアドレスをドメイン別に整理してパネルに表示します</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="domainDisplayEnabled">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <fieldset class="card">
+            <legend class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span data-i18n="autoCcCardTitle">自動CC設定</span>
+            </legend>
+            
+            <div class="setting-row setting-row-last">
+                <div class="setting-info">
+                    <label class="setting-label" for="autoCcEnabled" data-i18n="autoCcEnableLabel">自動CCを有効にする</label>
+                    <div class="setting-desc" data-i18n="autoCcEnableDescription">メール作成画面を開いた際、指定したメールアドレスを自動的にCCに追加します</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="autoCcEnabled">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="input-group hidden" id="cc-subs">
+                <label class="setting-label" for="autoCcAddress" data-i18n="autoCcAddressLabel">CCに入れるメールアドレス</label>
+                <div class="setting-desc" id="autoCcAddressDescription" data-i18n="autoCcAddressDescription">Enter、カンマ、スペースでアドレスを確定します。複数アドレスの貼り付けにも対応しています。</div>
+                <div class="recipient-chip-editor" id="autoCcChipEditor">
+                    <ul class="recipient-chip-list" id="autoCcAddressList" data-i18n-aria-label="configuredAutoCcLabel" aria-live="polite"></ul>
+                    <textarea class="recipient-chip-input" id="autoCcAddress" rows="1" autocomplete="off" spellcheck="false" placeholder="メールアドレスを入力" data-i18n-placeholder="autoCcAddressPlaceholder" aria-describedby="autoCcAddressDescription optionsValidationError" aria-invalid="false"></textarea>
+                </div>
+                
+                <div class="setting-row setting-row-last setting-row-compact">
+                    <div class="setting-info">
+                        <label class="setting-label" for="autoCcSkipIfSelfAlreadyPresent" data-i18n="autoCcSkipLabel">すでにTo/Cc/Bccに含まれる場合は追加しない</label>
+                        <div class="setting-desc" data-i18n="autoCcSkipDescription">宛先に自分が含まれている場合はCC追加をスキップします</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="autoCcSkipIfSelfAlreadyPresent">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset class="card">
+            <legend class="card-title">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span data-i18n="autoBccCardTitle">自動BCC設定</span>
+            </legend>
+            
+            <div class="setting-row setting-row-last">
+                <div class="setting-info">
+                    <label class="setting-label" for="autoBccEnabled" data-i18n="autoBccEnableLabel">自動BCCを有効にする</label>
+                    <div class="setting-desc" data-i18n="autoBccEnableDescription">メール作成画面を開いた際、指定したメールアドレスを自動的にBCCに追加します</div>
+                </div>
+                <label class="switch">
+                    <input type="checkbox" id="autoBccEnabled">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            
+            <div class="input-group hidden" id="bcc-subs">
+                <label class="setting-label" for="autoBccAddress" data-i18n="autoBccAddressLabel">BCCに入れるメールアドレス</label>
+                <div class="setting-desc" id="autoBccAddressDescription" data-i18n="autoBccAddressDescription">Enter、カンマ、スペースでアドレスを確定します。複数アドレスの貼り付けにも対応しています。</div>
+                <div class="recipient-chip-editor" id="autoBccChipEditor">
+                    <ul class="recipient-chip-list" id="autoBccAddressList" data-i18n-aria-label="configuredAutoBccLabel" aria-live="polite"></ul>
+                    <textarea class="recipient-chip-input" id="autoBccAddress" rows="1" autocomplete="off" spellcheck="false" placeholder="メールアドレスを入力" data-i18n-placeholder="autoBccAddressPlaceholder" aria-describedby="autoBccAddressDescription optionsValidationError" aria-invalid="false"></textarea>
+                </div>
+                
+                <div class="setting-row setting-row-last setting-row-compact">
+                    <div class="setting-info">
+                        <label class="setting-label" for="autoBccSkipIfSelfAlreadyPresent" data-i18n="autoBccSkipLabel">すでにTo/Cc/Bccに含まれる場合は追加しない</label>
+                        <div class="setting-desc" data-i18n="autoBccSkipDescription">宛先に自分が含まれている場合はBCC追加をスキップします</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="autoBccSkipIfSelfAlreadyPresent">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="validation-error" id="optionsValidationError" role="alert" hidden></div>
+        
+        <div class="actions">
+            <button class="btn btn-secondary" type="button" id="btnReset" data-i18n="resetButton">初期値に戻す</button>
+            <button class="btn btn-primary" type="button" id="btnSave" data-i18n="saveButton">設定を保存</button>
+        </div>
+    </div>
+    
+    <div class="save-toast" id="toast" role="status" aria-live="polite" aria-atomic="true" data-i18n="savedToast">設定を保存しました</div>
+
+    <script src="i18n.js"></script>
+    <script src="checks.js"></script>
+    <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "extensionName": {
+    "message": "Send Guard for Gmail"
+  },
+  "extensionDescription": {
+    "message": "A privacy-first, local-only send confirmation guard for Gmail Web."
+  }
+}

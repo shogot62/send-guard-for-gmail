@@ -1,0 +1,8 @@
+{
+  "extensionName": {
+    "message": "Send Guard for Gmail"
+  },
+  "extensionDescription": {
+    "message": "Gmail Web版の送信前に件名・宛先・添付・BCCを確認できる、プライバシー最優先のローカル処理Chrome拡張です。"
+  }
+}

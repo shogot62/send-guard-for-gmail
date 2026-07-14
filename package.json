@@ -1,0 +1,28 @@
+{
+  "name": "send-guard-for-gmail",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Privacy-first local-only Chrome MV3 send checklist extension for Gmail Web.",
+  "author": "shogot62",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shogot62/send-guard-for-gmail.git"
+  },
+  "homepage": "https://github.com/shogot62/send-guard-for-gmail#readme",
+  "bugs": {
+    "url": "https://github.com/shogot62/send-guard-for-gmail/issues"
+  },
+  "scripts": {
+    "pretest": "node tools/sync_release_assets.js",
+    "test": "node tests/checks.test.js && node tests/i18n.test.js && node tests/gmail_dom.test.js && node tests/security.test.js && node tests/release.test.js",
+    "lint:basic": "node tools/basic_static_check.js",
+    "release:sync": "node tools/sync_release_assets.js",
+    "release:package": "npm run release:sync && node tools/release_package.js",
+    "release:validate": "node tools/release_validate.js",
+    "release:reproducibility": "node tools/release_reproducibility.js"
+  },
+  "devDependencies": {
+    "jsdom": "^24.0.0"
+  }
+}
