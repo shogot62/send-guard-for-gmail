@@ -1,18 +1,19 @@
 # Send Guard for Gmail インストール・初期設定ガイド
 
-このドキュメントでは、Chrome拡張機能「Send Guard for Gmail」をご利用のブラウザ（Google Chrome）にインストールし、使えるようにするまでの手順を解説します。Send Guardは独立したプロジェクトであり、Googleとの提携、承認、後援関係はありません。Gmail™はGoogle LLCの商標です。
+このドキュメントでは、Chrome拡張機能「Send Guard for Gmail」をGoogle Chromeにローカルインストールし、使えるようにするまでの手順を解説します。Send Guardは独立したプロジェクトであり、Googleとの提携、承認、後援関係はありません。Gmail™はGoogle LLCの商標です。
 
 ---
 
 ## 1. Chromeへのインストール（読み込み）
 
-拡張機能は現在ローカルフォルダにあるため、「デベロッパーモード」を使って手動で読み込みます。
+現在はChromeウェブストアではなく、GitHubから取得したローカルフォルダを「デベロッパーモード」で手動読み込みします。
 
-1. Chromeブラウザを開き、アドレスバーに `chrome://extensions/` と入力してEnterを押します。
-2. 画面の右上にある **「デベロッパーモード」** のスイッチを **ON** にします。
-3. 左上に現れる **「パッケージ化されていない拡張機能を読み込む」** ボタンをクリックします。
-4. ファイル選択ダイアログが開くので、このプロジェクトの **`extension`** フォルダを選択して「フォルダの選択」をクリックします。
-5. 拡張機能一覧に **「Send Guard for Gmail」** が表示されればインストール完了です。
+1. GitHubリポジトリの **Code → Download ZIP** からダウンロードして展開するか、Gitでリポジトリをcloneします。
+2. Chromeブラウザを開き、アドレスバーに `chrome://extensions/` と入力してEnterを押します。
+3. 画面の右上にある **「デベロッパーモード」** のスイッチを **ON** にします。
+4. 左上に現れる **「パッケージ化されていない拡張機能を読み込む」** ボタンをクリックします。
+5. ファイル選択ダイアログで、展開またはcloneしたリポジトリ内の **`extension`** フォルダを選択して「フォルダの選択」をクリックします。
+6. 拡張機能一覧に **「Send Guard for Gmail」** が表示されればインストール完了です。
 
 開発時に読み込む正典ソースは **`extension/` 配下のみ** です。提出前は `npm run release:package` を実行し、生成される `extension_package/extension/` と提出ZIPを使います。`preview/` は設計確認用モックであり、本番拡張パッケージには含めないでください。
 
@@ -33,7 +34,7 @@
 
 ## 3. Gmailでの動作確認
 
-設定が完了したら、実際にGmailで動くかテストしてみましょう。
+設定が完了したら、実際にGmailで動くかテストします。
 
 1. [Gmail (https://mail.google.com/)](https://mail.google.com/) を開き、再読み込み（F5 または Ctrl+R）します。
 2. **「作成」** ボタンを押して新規メール作成画面を開きます。
@@ -58,7 +59,7 @@ npm run release:reproducibility
 
 この処理は `extension/` を正典として、公開リポジトリ用の `public_repo/extension/` と読み込み用ステージング `extension_package/extension/` をホワイトリスト方式で再生成します。提出候補ZIPはNode.jsの決定的STORE方式で `release/artifacts/` に生成され、ZIPのルート直下に `manifest.json` があること、directory entryが0件であること、全entryが許可一覧と完全一致すること、checksumファイルのSHA-256が実ZIPと一致することを検査します。再現性コマンドは同一実行内で2つのZIPを独立生成し、バイト列とSHA-256を比較します。ZIPに `README`、`docs`、`tests`、`tools`、`package.json`、`node_modules` を手動で追加しないでください。
 
-設定画面はライト/ダークテーマ、360px相当までの狭いデスクトップウィンドウ、長いアドレス/キーワードの折り返し、キーボード操作、reduced-motion設定、`aria-live`による保存通知に対応しています。Chrome 150 + Gmail Webの実機確認はこのリポジトリ内の自動テストでは代替できず、公開前に別途必要です。
+設定画面はライト/ダークテーマ、360px相当までの狭いデスクトップウィンドウ、長いアドレス/キーワードの折り返し、キーボード操作、reduced-motion設定、`aria-live`による保存通知に対応しています。初回公開版では実Gmail Webで基本動作の手動確認を実施していますが、自動テストと基本確認だけでは、Gmail DOM変更、返信・転送、ポップアウト、複数作成画面、Auto CC/BCC、添付アップロード中、ショートカット、予約送信等の全経路を保証できません。変更時や組織導入前には、`docs/ENTERPRISE_REVIEW.md` の手動確認チェックリストを実施してください。
 
 ---
 
