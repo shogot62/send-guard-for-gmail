@@ -2,9 +2,11 @@
 
 ## Reporting Vulnerabilities
 
-Please do not open a public issue for suspected security vulnerabilities.
+Please do not include suspected vulnerability details in a public issue.
 
-GitHub Private Vulnerability Reporting is planned to be enabled after the repository is published. Once enabled, use it for confidential security reports. Include a description, reproduction steps, affected version, and potential impact.
+Use GitHub Private Vulnerability Reporting when the repository displays the **Report a vulnerability** option. Include a description, reproduction steps, affected version, and potential impact.
+
+If the private reporting option is unavailable, open a public issue containing only a request for a private reporting channel. Do not include vulnerability details, proof-of-concept code, screenshots, logs, or confidential data in that issue.
 
 Do not include real email body text, recipient addresses, attachment names, screenshots containing customer data, Gmail DOM dumps, credentials, or other confidential information in public discussions. Use synthetic examples such as `client@example.com` and dummy filenames for non-security reports.
 
@@ -25,7 +27,7 @@ Do not include real email body text, recipient addresses, attachment names, scre
 
 ## Sensitive Test Data
 
-Tests and reports must use reserved domains such as `example.com`. Do not commit real customer names, real email addresses, real attachment names, screenshots, Gmail DOM dumps, or local machine paths.
+Tests and reports must use reserved domains such as `example.com`. Do not commit real customer names, real email addresses, real attachment names, screenshots, Gmail DOM dumps, logs, or local machine paths.
 
 ## Trademark Notice
 
