@@ -8,7 +8,7 @@ This document summarizes Send Guard for Gmail v0.1 for IT, security, legal, and 
 - Brand: Send Guard
 - Author: shogot62
 - License: MIT License
-- Repository: `https://github.com/shogot62/send-guard-for-gmail` (available after repository publication)
+- Repository: `https://github.com/shogot62/send-guard-for-gmail`
 - Gmail™ is a trademark of Google LLC.
 - Send Guard is an independent project and is not affiliated with, endorsed by, or sponsored by Google.
 
@@ -80,7 +80,7 @@ Attachment upload re-evaluation is limited to the visible modal and only runs wh
 
 Saving settings schedules a new bounded scan in already-open Gmail tabs, so newly enabled Auto CC/BCC settings are applied without requiring a Gmail reload.
 
-Chrome 150 + Gmail Web manual performance verification is required before organizational rollout.
+Basic manual verification on real Gmail Web has been completed by the maintainer for the initial public release. Full real-browser performance verification remains recommended before organizational rollout and after changes affecting Gmail monitoring or compose detection.
 
 ## Reply Auto CC/BCC Behavior
 
@@ -104,18 +104,19 @@ The GitHub repository may include docs, tests, CI, and general packaging tools. 
 
 - Gmail DOM is not a stable public API.
 - Automated tests are candidate evidence only.
-- Chrome 150 + Gmail Web manual verification is required before organizational rollout.
-- Chrome 150 + Gmail Web manual performance verification is required before organizational rollout.
-- Ctrl+Enter/Cmd+Enter send shortcuts are routed through the same self-check modal in v0.1. When the modal is active and the final send button is enabled, Ctrl+Enter/Cmd+Enter confirms the modal. Esc cancels and returns to editing. These flows should be manually verified in Chrome 150 + Gmail Web.
-- Reply Auto CC/BCC attempts to open collapsed recipient/Cc/Bcc areas and must be manually verified in Chrome 150 + Gmail Web.
+- Basic manual verification on real Gmail Web has been completed for the initial public release, but the comprehensive checklist below is not represented as fully completed.
+- Full real-browser functional and performance verification remains required before organizational rollout and after material Gmail DOM changes.
+- Ctrl+Enter/Cmd+Enter send shortcuts are routed through the same self-check modal in v0.1. When the modal is active and the final send button is enabled, Ctrl+Enter/Cmd+Enter confirms the modal. Esc cancels and returns to editing. These flows should be manually verified in the target Chrome and Gmail Web environment.
+- Reply Auto CC/BCC attempts to open collapsed recipient/Cc/Bcc areas and should be manually verified in the target Chrome and Gmail Web environment.
 - Schedule Send and other special Gmail sending flows are residual risks in v0.1 and require manual review before rollout.
-- Chrome 150 + real Gmail Web QA has not been performed in this AI environment; automated tests do not replace it.
 
 ## Security Reporting
 
-Do not open public Issues for suspected security vulnerabilities. GitHub Private Vulnerability Reporting is planned to be enabled after the repository is published; until then, no confidential GitHub reporting channel is represented as active.
+Do not include suspected vulnerability details in public Issues. Use GitHub Private Vulnerability Reporting when the repository displays the **Report a vulnerability** option.
 
-## Chrome 150 Manual Verification Checklist
+If the private reporting option is unavailable, open a public issue containing only a request for a private reporting channel. Do not include vulnerability details, proof-of-concept code, screenshots, logs, real email data, credentials, or other confidential information.
+
+## Comprehensive Manual Verification Checklist
 
 1. New compose with subject shows subject.
 2. New compose without subject shows a warning.
